@@ -1,0 +1,147 @@
+/* Apply the "Open Sans" font to all elements and their pseudo-elements */
+*, *::before, *::after{
+    font-family: "Open Sans", sans-serif;
+}
+
+/* Define the layout for the card grid */
+.card-grid {
+    /* Use CSS grid for layout */
+    display: grid;
+    /* Define the grid columns. It will have as many columns as can fit into the space, each at least 300px wide */
+    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    /* Define the gap between grid items */
+    gap: 1rem;
+    /* Align grid items to the start of their cell vertically */
+    align-items: flex-start;
+}
+
+/* Define the basic styles for a card */
+.card {
+    /* Define a CSS variable for padding */
+    --padding: 1rem;
+    /* Set the background color to white */
+    background: white;
+    /* Set the border */
+    border: 1px solid #777;
+    /* Round the corners */
+    border-radius: .25rem;
+    /* Clip any child elements that break out of the content box */
+    overflow: hidden;
+}
+
+/* Add a shadow to cards with the "card-shadow" class */
+.card.card-shadow {
+    /* Remove the border */
+    border: none;
+    /* Add a box shadow */
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+}
+
+/* Define the styles for the card header */
+.card-header {
+   /* Set the font size */
+   font-size: 1.5rem;
+   /* Apply padding */
+   padding: var(--padding);
+   /* Remove padding from the bottom */
+   padding-bottom: 0;
+   /* Add a margin to the bottom */
+   margin-bottom: .5rem; 
+}
+
+/* Define the styles for the card image header */
+.card-header.card-image {
+    /* Remove padding */
+    padding: 0;
+    /* Clip any child elements that break out of the content box */
+    overflow: hidden;
+}
+
+/* Define the styles for images within the card image header */
+.card-header.card-image > img {
+    /* Display the image as a block element */
+    display: block;
+    /* Set the width to 100% */
+    width: 100%;
+    /* Limit the maximum height */
+    max-height: 200px;
+    /* Set the aspect ratio */
+    aspect-ratio: 16 / 9;
+    /* Resize the image to cover the content box while maintaining its aspect ratio */
+    object-fit: cover;
+    /* Position the image at the center */
+    object-position: center;
+    /* Add a transition effect to the transform property */
+    transition: 200ms transform ease-in-out;
+}
+
+/* Define the transform effect when hovering over a card */
+.card:hover > .card-header.card-image > img {
+    /* Scale the image up slightly */
+    transform: scale(1.025);
+}
+
+/* Define the styles for the card body */
+.card-body {
+    /* Set the font size */
+    font-size: .9rem;
+    /* Apply padding */
+    padding: 0 var(--padding);
+}
+
+/* Define the styles for the card footer */
+.card-footer {
+    /* Add a margin to the top */
+    margin-top: 1rem;
+    /* Apply padding */
+    padding: var(--padding);
+    /* Remove padding from the top */
+    padding-top: 0;
+}
+
+/* Define the styles for buttons */
+.btn {
+    /* Define a CSS variable for color */
+    --color:hsl(200, 50%, 50%);
+    /* Set the background color */
+    background: var(--color);
+    /* Set the text color to white */
+    color: white;
+    /* Remove the border */
+    border: none;
+    /* Apply padding */
+    padding: .5em .75em;
+    /* Round the corners */
+    border-radius: .25em;
+    /* Change the cursor to a pointer when hovering over the button */
+    cursor: pointer;
+}
+
+/* Define the hover and focus styles for buttons */
+.btn:hover, btn:focus {
+    /* Change the background color */
+    background: hsl(200, 50%, 60%);
+}
+
+/* Define the styles for outline buttons */
+.btn.btn-outline {
+    /* Remove the background color */
+    background: none;
+    /* Set the border */
+    border: 1px solid hsl(200, 50%, 50%);
+    /* Set the text color */
+    color: var(--color);
+}
+
+/* Define the hover and focus styles for outline buttons */
+.btn.btn-outline:hover,
+.btn.btn-outline:focus {
+    /* Change the background color */
+    background: hsl(200, 50%, 90%);
+}
+
+/* Define the styles for a button that follows another button */
+.btn + .btn {
+    /* Add a margin to the left */
+    margin-left: .50rem;
+} 
